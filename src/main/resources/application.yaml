@@ -1,0 +1,27 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  output:
+    ansi:
+      enabled: ALWAYS
+  application:
+    name: ELECTRONIC JOURNAL COPIER
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/Cam
+#      uri: "mongodb+srv://doadmin:0s3cAM6O17259TXf@aetdevops-mongodb-27b4e102.mongo.ondigitalocean.com/reconciliation?tls=true&authSource=admin&replicaSet=aetdevops-mongodb"
+      write-concern: ACKNOWLEDGED
+
+kafka:
+  #  bootstrap-servers: localhost:9092
+  bootstrap-servers: 144.126.206.147:9092
+  consumer:
+    group-id: intellicam-group
+    auto-offset-reset: latest
+  producer:
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+logging:
+  level:
+    org.apache.kafka: ERROR
